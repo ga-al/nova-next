@@ -177,7 +177,7 @@ a {
 
 .scroll-hint {
   position: absolute;
-  bottom: -3.75rem;
+  bottom: -2.35rem;
   left: 1.5rem;
   color: var(--muted);
   font-size: 0.75rem;

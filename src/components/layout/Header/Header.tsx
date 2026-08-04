@@ -14,12 +14,14 @@ const navItems = [
   { label: "catalog", href: "#pipes" },
 ];
 
+const sectionIds = navItems.map((item) => item.href.slice(1));
 const DESKTOP_MQ = "(min-width: 769px)";
 
 export default function Header() {
   const t = useTranslations("nav");
   const tCommon = useTranslations("common");
   const [isOpen, setIsOpen] = useState(false);
+  const [activeId, setActiveId] = useState(sectionIds[0]);
 
   const close = useCallback(() => setIsOpen(false), []);
   const toggle = useCallback(() => setIsOpen((prev) => !prev), []);
@@ -49,6 +51,51 @@ export default function Header() {
     return () => mq.removeEventListener("change", onChange);
   }, [close]);
 
+  useEffect(() => {
+    const elements = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el != null);
+
+    if (elements.length === 0) return;
+
+    const visibleRatios = new Map<string, number>();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            visibleRatios.set(entry.target.id, entry.intersectionRatio);
+          } else {
+            visibleRatios.delete(entry.target.id);
+          }
+        }
+
+        let nextId = sectionIds[0];
+        let bestRatio = -1;
+
+        for (const id of sectionIds) {
+          const ratio = visibleRatios.get(id);
+          if (ratio != null && ratio >= bestRatio) {
+            bestRatio = ratio;
+            nextId = id;
+          }
+        }
+
+        if (bestRatio >= 0) {
+          setActiveId((prev) => (prev === nextId ? prev : nextId));
+        }
+      },
+      {
+        // Учитываем fixed-header; активация, когда блок в верхней части экрана
+        rootMargin: "-64px 0px -55% 0px",
+        threshold: [0, 0.1, 0.25, 0.5, 0.75, 1],
+      },
+    );
+
+    for (const el of elements) observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <header className={styles.header}>
       <div className={styles.header__inner}>
@@ -58,13 +105,26 @@ export default function Header() {
           </Link>
           <nav className={styles.nav} aria-label={tCommon("mainNav")}>
             <ul className={styles.nav__list}>
-              {navItems.map((item) => (
-                <li className={styles.nav__item} key={item.label}>
-                  <Link href={item.href} className={styles.nav__link}>
-                    {t(item.label)}
-                  </Link>
-                </li>
-              ))}
+              {navItems.map((item) => {
+                const id = item.href.slice(1);
+                const isActive = activeId === id;
+
+                return (
+                  <li className={styles.nav__item} key={item.label}>
+                    <Link
+                      href={item.href}
+                      className={
+                        isActive
+                          ? `${styles.nav__link} ${styles.nav__linkActive}`
+                          : styles.nav__link
+                      }
+                      aria-current={isActive ? "true" : undefined}
+                    >
+                      {t(item.label)}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
           <div className={styles.header__actions}>
@@ -84,7 +144,12 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <MobileMenu items={navItems} isOpen={isOpen} onClose={close} />
+      <MobileMenu
+        items={navItems}
+        activeId={activeId}
+        isOpen={isOpen}
+        onClose={close}
+      />
     </header>
   );
 }

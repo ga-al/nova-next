@@ -103,10 +103,14 @@
 }
 
 .ticker__action :global(.btn--transparent) {
-  font-size: 0.5rem;
-  justify-content: start;
-  padding-inline: 2px;
-  line-height: 1.4;
+  font-size: 0.9rem;
+  justify-content: center;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.ticker__action :global(.btn--transparent):hover {
+  color: var(--accent);
 }
 
 @keyframes ticker {
@@ -125,5 +129,15 @@
 
   .ticker:hover .ticker__track {
     animation-play-state: running;
+  }
+}
+
+@media (max-width: 61.25rem) {
+  .ticker__action :global(.btn--transparent) {
+    font-size: 0.5rem;
+    font-weight: 600;
+    justify-content: start;
+    padding-inline: 10px;
+    line-height: 1.4;
   }
 }

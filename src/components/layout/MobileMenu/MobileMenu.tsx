@@ -11,10 +11,12 @@ const EXIT_MS = 350;
 
 export default function MobileMenu({
   items,
+  activeId,
   isOpen,
   onClose,
 }: {
   items: { label: string; href: string }[];
+  activeId: string;
   isOpen: boolean;
   onClose: () => void;
 }) {
@@ -83,17 +85,26 @@ export default function MobileMenu({
         aria-label={tCommon("mobileNav")}
       >
         <ul className={styles.mobileMenu__list}>
-          {items.map((item) => (
-            <li className={styles.mobileMenu__item} key={item.label}>
-              <Link
-                href={item.href}
-                className={styles.mobileMenu__link}
-                onClick={onClose}
-              >
-                {t(item.label)}
-              </Link>
-            </li>
-          ))}
+          {items.map((item) => {
+            const isActive = activeId === item.href.slice(1);
+
+            return (
+              <li className={styles.mobileMenu__item} key={item.label}>
+                <Link
+                  href={item.href}
+                  className={
+                    isActive
+                      ? `${styles.mobileMenu__link} ${styles.mobileMenu__linkActive}`
+                      : styles.mobileMenu__link
+                  }
+                  aria-current={isActive ? "true" : undefined}
+                  onClick={onClose}
+                >
+                  {t(item.label)}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </nav>
     </div>,

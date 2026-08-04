@@ -1,7 +1,6 @@
 .hero {
-  /* min-height: calc(100svh - 8rem); */
   padding-top: 2rem;
-  padding-bottom: 5rem;
+  padding-bottom: 3.95rem;
   overflow: hidden;
 }
 

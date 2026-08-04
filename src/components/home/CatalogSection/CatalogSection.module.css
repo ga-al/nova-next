@@ -1,5 +1,5 @@
 .pipes {
-  padding-block: 5rem;
+  padding-top: 4.1rem;
 }
 
 .pipes__head {
@@ -76,7 +76,7 @@
 
 @media (max-width: 61.25rem) {
   .pipes {
-    padding: 3rem 0 8rem;
+    padding: 3rem 0 5rem;
   }
 
   .pipes__grid {

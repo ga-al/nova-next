@@ -53,7 +53,7 @@
 }
 
 .nav__link:hover,
-.nav__link.is-active {
+.nav__linkActive {
   color: var(--accent);
 }
 
@@ -90,7 +90,7 @@
   transform: translateY(-11px) rotate(-45deg);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .nav {
     display: none;
   }
@@ -102,24 +102,4 @@
   .header__actions {
     margin-left: auto;
   }
-}
-
-.lang {
-  display: inline-flex;
-  border: 1px solid var(--line);
-}
-
-.lang__btn {
-  border: 0;
-  background: transparent;
-  padding: 0.35rem 0.55rem;
-  font-size: 0.72rem;
-  font-weight: 700;
-  cursor: pointer;
-  color: var(--muted);
-}
-
-.lang__btn.is-active {
-  background: var(--ink);
-  color: var(--background);
 }

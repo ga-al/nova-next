@@ -53,7 +53,8 @@
   text-transform: lowercase;
 }
 
-.mobileMenu__link:hover {
+.mobileMenu__link:hover,
+.mobileMenu__linkActive {
   color: var(--accent);
 }
 
