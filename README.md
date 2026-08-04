@@ -36,6 +36,7 @@ npm run dev
 - **Модалка контакта** — нативный `<dialog>`, управление фокусом, честный demo API
   (`/api/contact` только валидирует; письма не отправляет).
 - **Типизированные данные каталога / тикера** в `src/data/`, строки UI — в messages.
+- **Бренд и тексты** вынесены в src/config/site.ts и src/messages/
 
 ## Карта проекта
 
@@ -69,12 +70,6 @@ src/
 | `npm run build`     | Production-сборка    |
 | `npm run lint`      | ESLint               |
 | `npm run typecheck` | `tsc --noEmit`       |
-
-## Ребрендинг
-
-1. Отредактируйте `src/config/site.ts` (имя, заголовки, иконки, live/theme URL).
-2. Обновите `src/messages/ru.json` и `en.json`.
-3. Замените ассеты в `public/images/` и шрифты в `public/fonts/`.
 
 ## Заметки
 
