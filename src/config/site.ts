@@ -12,7 +12,7 @@ export const siteConfig = {
   defaultSiteUrl: "http://localhost:3000",
   /** Live client site + source — portfolio credit links in the footer. */
   liveSiteUrl: "https://datsumetals.com/",
-  themeCodeUrl: "https://github.com/ga-al/datsu-site-vertical",
+  themeCodeUrl: "https://github.com/ga-al/nova-next",
   ogImage: {
     path: "/images/og.png",
     width: 1200,
