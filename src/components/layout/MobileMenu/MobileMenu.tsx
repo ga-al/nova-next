@@ -26,22 +26,35 @@ export default function MobileMenu({
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
 
-  useEffect(() => {
+  // Синхронизация с isOpen во время рендера (рекомендованный React-паттерн)
+  const [wasOpen, setWasOpen] = useState(isOpen);
+  if (isOpen !== wasOpen) {
+    setWasOpen(isOpen);
     if (isOpen) {
       setMounted(true);
-      const id = requestAnimationFrame(() => {
-        requestAnimationFrame(() => setVisible(true));
-      });
-      return () => cancelAnimationFrame(id);
+    } else {
+      setVisible(false);
     }
+  }
 
-    setVisible(false);
+  useEffect(() => {
+    if (!isOpen || !mounted) return;
+
+    const id = requestAnimationFrame(() => {
+      requestAnimationFrame(() => setVisible(true));
+    });
+    return () => cancelAnimationFrame(id);
+  }, [isOpen, mounted]);
+
+  useEffect(() => {
+    if (isOpen || visible || !mounted) return;
+
     const timer = window.setTimeout(() => {
       setMounted(false);
     }, EXIT_MS);
 
     return () => window.clearTimeout(timer);
-  }, [isOpen]);
+  }, [isOpen, visible, mounted]);
 
   const handleTransitionEnd = (e: TransitionEvent<HTMLDivElement>) => {
     if (e.target !== e.currentTarget) return;

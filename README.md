@@ -4,8 +4,9 @@
 локализованный роутинг, статически дружелюбные Open Graph-метаданные, scoped i18n
 payloads и кастомную CSS-систему (не готовый UI-kit).
 
+**Демо:** [heartfelt-heliotrope-f8f471.netlify.app](https://heartfelt-heliotrope-f8f471.netlify.app/ru) ·
 **Живой референс:** [datsumetals.com](https://datsumetals.com/) ·
-**Источник темы:** [datsu-site-vertical](https://github.com/ga-al/datsu-site-vertical)
+**Источник:** [nova-next](https://github.com/ga-al/nova-next)
 
 ## Стек
 
@@ -62,12 +63,12 @@ src/
 
 ## Скрипты
 
-| Команда           | Назначение           |
-| ----------------- | -------------------- |
-| `npm run dev`     | Локальная разработка |
-| `npm run build`   | Production-сборка    |
-| `npm run lint`    | ESLint               |
-| `npm run typecheck` | `tsc --noEmit`     |
+| Команда             | Назначение           |
+| ------------------- | -------------------- |
+| `npm run dev`       | Локальная разработка |
+| `npm run build`     | Production-сборка    |
+| `npm run lint`      | ESLint               |
+| `npm run typecheck` | `tsc --noEmit`       |
 
 ## Ребрендинг
 

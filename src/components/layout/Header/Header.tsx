@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import LocaleSwitcher from "@/components/layout/LocaleSwitcher/LocaleSwitcher";
@@ -8,7 +9,7 @@ import styles from "./Header.module.css";
 import MobileMenu from "../MobileMenu/MobileMenu";
 
 const navItems = [
-  { label: "home", href: "/" },
+  { label: "home", href: "#hero" },
   { label: "about", href: "#about" },
   { label: "catalog", href: "#pipes" },
 ];
@@ -53,7 +54,7 @@ export default function Header() {
       <div className={styles.header__inner}>
         <div className="container">
           <Link href="/" className={styles.logo}>
-            <img src="/logo.svg" alt="Nova" />
+            <Image src="/logo.svg" alt="Nova" width={126} height={32} priority />
           </Link>
           <nav className={styles.nav} aria-label={tCommon("mainNav")}>
             <ul className={styles.nav__list}>

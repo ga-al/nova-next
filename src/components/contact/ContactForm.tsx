@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useSyncExternalStore } from "react";
 import { createPortal, flushSync } from "react-dom";
 
 import styles from "./ContactForm.module.css";
@@ -13,6 +13,8 @@ interface ContactFormProps {
   isOpen: boolean;
 }
 
+const emptySubscribe = () => () => {};
+
 export default function ContactForm({ handleClose, isOpen }: ContactFormProps) {
   const t = useTranslations("contactForm");
 
@@ -21,12 +23,12 @@ export default function ContactForm({ handleClose, isOpen }: ContactFormProps) {
   const nameInputRef = useRef<HTMLInputElement>(null);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
   const [status, setStatus] = useState<FormStatus>("idle");
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     if (!mounted) return;
@@ -49,21 +51,24 @@ export default function ContactForm({ handleClose, isOpen }: ContactFormProps) {
   }, [isOpen, mounted]);
 
   useEffect(() => {
-    if (!isOpen) {
-      if (closeTimerRef.current) {
-        clearTimeout(closeTimerRef.current);
-        closeTimerRef.current = null;
-      }
-      setStatus("idle");
-      formRef.current?.reset();
-    }
-  }, [isOpen]);
-
-  useEffect(() => {
     return () => {
       if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     };
   }, []);
+
+  const resetForm = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setStatus("idle");
+    formRef.current?.reset();
+  };
+
+  const onDialogClose = () => {
+    resetForm();
+    handleClose();
+  };
 
   const handleDialogClick = (event: React.MouseEvent<HTMLDialogElement>) => {
     if (event.target === dialogRef.current) handleClose();
@@ -110,7 +115,7 @@ export default function ContactForm({ handleClose, isOpen }: ContactFormProps) {
       ref={dialogRef}
       className={styles.modal}
       aria-labelledby="modal-title"
-      onClose={handleClose}
+      onClose={onDialogClose}
       onClick={handleDialogClick}
     >
       <form
