@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 252 64" role="img" aria-labelledby="title">
+  <title id="title">NOVA Studio</title>
+  <style>
+    .wordmark { fill: #171717; }
+    .caption { fill: #6d6d6d; }
+
+    @media (prefers-color-scheme: dark) {
+      .wordmark { fill: #ededed; }
+      .caption { fill: #a3a3a3; }
+    }
+  </style>
+
+  <g transform="translate(2 4)">
+    <path fill="#dd3c3c" d="M28 0 56 28 28 56 0 28 28 0Z"/>
+    <path fill="#fff" d="m28 13 15 15-15 15-5-5 10-10-10-10 5-5Z"/>
+    <circle cx="17" cy="28" r="4" fill="#fff"/>
+  </g>
+
+  <text
+    class="wordmark"
+    x="72"
+    y="35"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="30"
+    font-weight="800"
+    letter-spacing="4"
+  >NOVA</text>
+  <text
+    class="caption"
+    x="74"
+    y="52"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="9"
+    font-weight="700"
+    letter-spacing="5"
+  >STUDIO</text>
+</svg>

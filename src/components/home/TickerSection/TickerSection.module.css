@@ -1,0 +1,129 @@
+.ticker {
+  border-block: 1px solid var(--line);
+  background: color-mix(in srgb, var(--background) 65%, transparent);
+}
+
+.ticker :global(.container) {
+  position: relative;
+}
+
+.ticker__viewport {
+  position: relative;
+  overflow: hidden;
+}
+
+.ticker__track {
+  display: flex;
+  width: max-content;
+  animation: ticker 48s linear infinite;
+}
+
+.ticker:hover .ticker__track {
+  animation-play-state: paused;
+}
+
+.ticker__group {
+  display: flex;
+  gap: 1rem;
+  /* Trailing space = gap between halves; keeps -50% seamless */
+  padding-inline-end: 1rem;
+  flex-shrink: 0;
+}
+
+.ticker__fade {
+  position: absolute;
+  top: 0;
+  bottom: 3.5rem;
+  width: 4rem;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.ticker__fade--left {
+  left: 0;
+  background: linear-gradient(90deg, var(--background), transparent);
+}
+
+.ticker__fade--right {
+  right: 0;
+  background: linear-gradient(270deg, var(--background), transparent);
+}
+
+.tickerCard {
+  min-width: 240px;
+  padding: 2px 1.25rem;
+  border-left: 2px solid var(--line);
+}
+
+.tickerCard__name {
+  margin: 0;
+  font-size: 0.777rem;
+  font-weight: 400;
+}
+
+.tickerCard time {
+  font-size: 0.56rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.tickerCard__value {
+  font-family: var(--font-display);
+  font-size: 1rem;
+}
+
+.tickerCard__value span {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.tickerCard__value em {
+  font-style: normal;
+  margin-left: 0.35rem;
+}
+
+.tickerCard__value .up {
+  color: var(--up);
+}
+
+.tickerCard__value .down {
+  color: var(--down);
+}
+
+.ticker__action {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  width: 25%;
+  padding-block: 4px;
+  background-color: color-mix(in srgb, var(--background) 95%, transparent);
+}
+
+.ticker__action :global(.btn--transparent) {
+  font-size: 0.5rem;
+  justify-content: start;
+  padding-inline: 2px;
+  line-height: 1.4;
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker__track {
+    animation: none;
+  }
+
+  .ticker:hover .ticker__track {
+    animation-play-state: running;
+  }
+}

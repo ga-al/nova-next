@@ -1,0 +1,68 @@
+{
+  "common": {
+    "localeSwitcherLabel": "Language",
+    "localeRu": "RU",
+    "localeEn": "EN",
+    "notFoundTitle": "Page not found",
+    "notFound": "This page does not exist — or it has moved.",
+    "backHome": "Back home",
+    "closeMenu": "Close menu",
+    "openMenu": "Open menu",
+    "mainNav": "Main navigation",
+    "mobileNav": "Mobile navigation"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "catalog": "Catalog"
+  },
+  "contactForm": {
+    "title": "Request a price",
+    "name": "Name",
+    "phone": "Phone",
+    "message": "Message",
+    "consent": "I agree to the processing of personal data",
+    "send": "Send request",
+    "success": "Demo: form accepted locally — no email is sent.",
+    "error": "Could not send the request. Please try again.",
+    "placeholder": "Hello, I am interested in your proposal and would like to discuss the details",
+    "close": "Close"
+  },
+  "home": {
+    "metaTitle": "Stainless Steel Pipes",
+    "metaDescription": "Stainless steel pipes and fittings supplied from stock and made to order.",
+    "heroTitleFirst": "stainless steel",
+    "heroTitleAccent": "pipes",
+    "heroLead": "Best global prices · container shipments only · exclusive factory pricing",
+    "priceCta": "Get a current price",
+    "heroCatalogCta": "See products",
+    "heroScroll": "Scroll",
+    "tickerWeight": "(per ton)",
+    "aboutEyebrow": "Stainless steel pipes",
+    "aboutTitle": "Built for container export",
+    "aboutImgAlt": "Stainless steel pipes stacked for container export",
+    "about1": "Years of containerized pipe exports from China",
+    "about2": "Investing in production expansion",
+    "about3": "Industry-leading experts",
+    "about4": "Exclusive factory pricing",
+    "pipesEyebrow": "Catalog",
+    "pipesTitle": "Our product range",
+    "pipesCta": "Download catalog",
+    "pipe1": "Stainless steel welded pipes",
+    "diameter": "Diameter",
+    "wall": "Wall thickness",
+    "length": "Pipe length",
+    "steel": "Steel grades",
+    "pipe2": "Decorative tubes for shower cabins",
+    "pipe2Text": "High-gloss finish, standard sizes, custom coatings: matte black, titanium, gold, bronze, mirror 800 grit.",
+    "pipe3": "Square / rectangular pipes",
+    "pipe3Text": "ASTM 554 · MT304, MT304L, MT316L, MT430, Grade 201 / 202",
+    "pipe4": "Seamless pipes",
+    "pipe4Text": "ASTM A312 · GOST 9941 · OD 6–914 mm · wall 0.5–68 mm"
+  },
+  "footer": {
+    "footerNote": "Static portfolio demo of a custom React/Next.js website build.",
+    "liveSite": "Live site",
+    "themeCode": "Theme code"
+  }
+}

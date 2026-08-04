@@ -1,0 +1,26 @@
+.switcher {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.link,
+.active {
+  font: inherit;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  transition: opacity 0.15s ease;
+}
+
+.link:hover,
+.link:focus-visible {
+  opacity: 1;
+}
+
+.active {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
