@@ -5,7 +5,7 @@
 payloads и кастомную CSS-систему (не готовый UI-kit).
 
 **Демо:** [heartfelt-heliotrope-f8f471.netlify.app](https://heartfelt-heliotrope-f8f471.netlify.app/ru) ·
-**Живой референс:** [datsumetals.com](https://datsumetals.com/) ·
+
 **Источник:** [nova-next](https://github.com/ga-al/nova-next)
 
 ## Стек
