@@ -11,7 +11,7 @@ export const siteConfig = {
   titleSeparator: " | ",
   defaultSiteUrl: "http://localhost:3000",
   /** Live client site + source — portfolio credit links in the footer. */
-  liveSiteUrl: "https://datsumetals.com/",
+  liveSiteUrl: "https://nova-demka.netlify.app/ru",
   themeCodeUrl: "https://github.com/ga-al/nova-next",
   ogImage: {
     path: "/images/og.png",

@@ -4,7 +4,7 @@
 локализованный роутинг, статически дружелюбные Open Graph-метаданные, scoped i18n
 payloads и кастомную CSS-систему (не готовый UI-kit).
 
-**Демо:** [heartfelt-heliotrope-f8f471.netlify.app](https://heartfelt-heliotrope-f8f471.netlify.app/ru) ·
+**Демо:** [heartfelt-heliotrope-f8f471.netlify.app](https://nova-demka.netlify.app/ru) ·
 
 **Источник:** [nova-next](https://github.com/ga-al/nova-next)
 
